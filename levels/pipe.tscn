@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://b454viugnurk8"]
+[gd_scene load_steps=7 format=4 uid="uid://b454viugnurk8"]
 
 [ext_resource type="Texture2D" uid="uid://bcotrisa2t08r" path="res://Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/tileset.png" id="1_arfis"]
 [ext_resource type="Script" uid="uid://dm1bmeg7fh8fw" path="res://levels/pipe.gd" id="1_mfqpv"]
@@ -118,11 +118,14 @@ texture = ExtResource("1_arfis")
 [sub_resource type="TileSet" id="TileSet_g3wj0"]
 sources/0 = SubResource("TileSetAtlasSource_mfqpv")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfqpv"]
+size = Vector2(32, 568)
+
 [node name="pipe" type="Area2D"]
 script = ExtResource("1_mfqpv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -208)
+position = Vector2(0, -180)
 shape = SubResource("RectangleShape2D_cisvw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CollisionShape2D"]
@@ -131,7 +134,7 @@ tile_map_data = PackedByteArray("AAD/////AAAOAAQAAAD//wAAAAAOAAUAAAAAAP//AAAPAAQ
 tile_set = SubResource("TileSet_g3wj0")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 208)
+position = Vector2(0, 180)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_cisvw")
 
@@ -140,4 +143,10 @@ position = Vector2(0, 8)
 tile_map_data = PackedByteArray("AAD/////AAAOAAQAAAD//wAAAAAOAAUAAAAAAP//AAAPAAQAAAAAAAAAAAAPAAUAAAD///3/AAAOAAQAAAD///7/AAAOAAUAAAAAAP3/AAAPAAQAAAAAAP7/AAARAAQAAAD///v/AAAOAAQAAAD///z/AAAOAAUAAAAAAPv/AAAPAAQAAAAAAPz/AAARAAQAAAD///n/AAAOAAQAAAD///r/AAAOAAUAAAAAAPn/AAAPAAQAAAAAAPr/AAAPAAUAAAD//wEAAAAOAAQAAAD//wIAAAARAAQAAAAAAAEAAAAPAAQAAAAAAAIAAAAPAAUAAAD//wMAAAAOAAQAAAD//wQAAAAOAAUAAAAAAAMAAAAPAAQAAAAAAAQAAAAPAAUAAAD//wUAAAARAAQAAAAAAAUAAAARAAQAAAA=")
 tile_set = SubResource("TileSet_g3wj0")
 
+[node name="point_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="point_zone"]
+shape = SubResource("RectangleShape2D_mfqpv")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="point_zone" to="." method="_on_point_zone_body_exited"]

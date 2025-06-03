@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://c1q7efajqs5iu"]
+[gd_scene load_steps=14 format=4 uid="uid://c1q7efajqs5iu"]
 
+[ext_resource type="Script" uid="uid://4jixgy40udm4" path="res://levels/level_1.gd" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://ymfiv6eaj5n6" path="res://player/player.tscn" id="1_vn7o3"]
 [ext_resource type="Texture2D" uid="uid://cl4wayp6f200" path="res://Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/sky.png" id="2_kx6l7"]
 [ext_resource type="Texture2D" uid="uid://x8wuhwr5qskk" path="res://Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/clouds.png" id="2_n46q3"]
@@ -126,7 +127,11 @@ sources/0 = SubResource("TileSetAtlasSource_btoec")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l53as"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gwceb"]
+normal = Vector2(0, 1)
+
 [node name="level1" type="Node2D"]
+script = ExtResource("1_l53as")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_btoec")
@@ -198,12 +203,46 @@ collision_layer = 3
 script = ExtResource("7_gwceb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(576, -32)
+position = Vector2(576, 729)
 shape = SubResource("WorldBoundaryShape2D_l53as")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(576, 683)
-shape = SubResource("WorldBoundaryShape2D_l53as")
+position = Vector2(576, -86)
+shape = SubResource("WorldBoundaryShape2D_gwceb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="vbox" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 4.0
+offset_right = 103.0
+offset_bottom = 50.0
+scale = Vector2(0.05, 0.05)
+
+[node name="score_hbox" type="HBoxContainer" parent="CanvasLayer/vbox"]
+layout_mode = 2
+
+[node name="score" type="Label" parent="CanvasLayer/vbox/score_hbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 500
+text = "Score : "
+
+[node name="score_value" type="Label" parent="CanvasLayer/vbox/score_hbox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 500
+
+[node name="best_score_hbox" type="HBoxContainer" parent="CanvasLayer/vbox"]
+layout_mode = 2
+
+[node name="best_score" type="Label" parent="CanvasLayer/vbox/best_score_hbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 500
+text = "Best Score : "
+
+[node name="best_score_value" type="Label" parent="CanvasLayer/vbox/best_score_hbox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 500
 
 [connection signal="timeout" from="pipe_spawner/Timer" to="pipe_spawner" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

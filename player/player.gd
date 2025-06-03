@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 func _process(delta: float) -> void:
 	velocity.y += gravity * delta
-	
+
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = jump_strength
 		$Sprite2D/AnimationPlayer.play("fly")
@@ -15,6 +15,5 @@ func _process(delta: float) -> void:
 		rotation_degrees = lerp(rotation_degrees, -30.0, 0.05)
 	else:
 		rotation_degrees = lerp(rotation_degrees, 60.0, 0.05)
-		
+
 	move_and_slide()
-	
