@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=4 uid="uid://b454viugnurk8"]
+
+[ext_resource type="Texture2D" uid="uid://bcotrisa2t08r" path="res://Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/tileset.png" id="1_arfis"]
+[ext_resource type="Script" uid="uid://dm1bmeg7fh8fw" path="res://levels/pipe.gd" id="1_mfqpv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cisvw"]
+size = Vector2(32, 208)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfqpv"]
+texture = ExtResource("1_arfis")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+19:2/0 = 0
+21:2/0 = 0
+0:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+0:4/0 = 0
+3:4/0 = 0
+5:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+17:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+0:5/0 = 0
+3:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+22:5/0 = 0
+0:6/0 = 0
+3:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+0:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+20:7/0 = 0
+22:7/0 = 0
+0:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+0:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+20:9/0 = 0
+22:9/0 = 0
+0:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g3wj0"]
+sources/0 = SubResource("TileSetAtlasSource_mfqpv")
+
+[node name="pipe" type="Area2D"]
+script = ExtResource("1_mfqpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -208)
+shape = SubResource("RectangleShape2D_cisvw")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="CollisionShape2D"]
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAD/////AAAOAAQAAAD//wAAAAAOAAUAAAAAAP//AAAPAAQAAAAAAAAAAAAPAAUAAAD///3/AAAOAAQAAAD///7/AAAOAAUAAAAAAP3/AAAPAAQAAAAAAP7/AAARAAQAAAD///v/AAAOAAQAAAD///z/AAAOAAUAAAAAAPv/AAAPAAQAAAAAAPz/AAARAAQAAAD///n/AAAOAAQAAAD///r/AAAOAAUAAAAAAPn/AAAPAAQAAAAAAPr/AAAPAAUAAAD//wEAAAAOAAQAAAD//wIAAAARAAQAAAAAAAEAAAAPAAQAAAAAAAIAAAAPAAUAAAD//wMAAAAOAAQAAAD//wQAAAAOAAUAAAAAAAMAAAAPAAQAAAAAAAQAAAAPAAUAAAD//wUAAAARAAQAAAAAAAUAAAARAAQAAAA=")
+tile_set = SubResource("TileSet_g3wj0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 208)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_cisvw")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="CollisionShape2D2"]
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAD/////AAAOAAQAAAD//wAAAAAOAAUAAAAAAP//AAAPAAQAAAAAAAAAAAAPAAUAAAD///3/AAAOAAQAAAD///7/AAAOAAUAAAAAAP3/AAAPAAQAAAAAAP7/AAARAAQAAAD///v/AAAOAAQAAAD///z/AAAOAAUAAAAAAPv/AAAPAAQAAAAAAPz/AAARAAQAAAD///n/AAAOAAQAAAD///r/AAAOAAUAAAAAAPn/AAAPAAQAAAAAAPr/AAAPAAUAAAD//wEAAAAOAAQAAAD//wIAAAARAAQAAAAAAAEAAAAPAAQAAAAAAAIAAAAPAAUAAAD//wMAAAAOAAQAAAD//wQAAAAOAAUAAAAAAAMAAAAPAAQAAAAAAAQAAAAPAAUAAAD//wUAAAARAAQAAAAAAAUAAAARAAQAAAA=")
+tile_set = SubResource("TileSet_g3wj0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

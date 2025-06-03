@@ -1,0 +1,209 @@
+[gd_scene load_steps=12 format=4 uid="uid://c1q7efajqs5iu"]
+
+[ext_resource type="PackedScene" uid="uid://ymfiv6eaj5n6" path="res://player/player.tscn" id="1_vn7o3"]
+[ext_resource type="Texture2D" uid="uid://cl4wayp6f200" path="res://Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/sky.png" id="2_kx6l7"]
+[ext_resource type="Texture2D" uid="uid://x8wuhwr5qskk" path="res://Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/clouds.png" id="2_n46q3"]
+[ext_resource type="Texture2D" uid="uid://dwmpiewoqxygo" path="res://Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/trees.png" id="3_kx6l7"]
+[ext_resource type="Texture2D" uid="uid://bcotrisa2t08r" path="res://Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/tileset.png" id="4_n46q3"]
+[ext_resource type="Script" uid="uid://4h6ynoqhv75b" path="res://levels/pipe_spawner.gd" id="5_btoec"]
+[ext_resource type="Script" uid="uid://c37q5tqjh41fw" path="res://levels/world_bound.gd" id="7_gwceb"]
+
+[sub_resource type="Environment" id="Environment_btoec"]
+background_mode = 1
+background_color = Color(0.345098, 0.788235, 0.768627, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btoec"]
+texture = ExtResource("4_n46q3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+19:2/0 = 0
+21:2/0 = 0
+0:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+0:4/0 = 0
+3:4/0 = 0
+5:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+17:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+0:5/0 = 0
+3:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+22:5/0 = 0
+0:6/0 = 0
+3:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+0:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+20:7/0 = 0
+22:7/0 = 0
+0:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+0:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+20:9/0 = 0
+22:9/0 = 0
+0:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gwceb"]
+sources/0 = SubResource("TileSetAtlasSource_btoec")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l53as"]
+
+[node name="level1" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_btoec")
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="Parallax2D_sky" type="Parallax2D" parent="background"]
+texture_filter = 1
+scroll_scale = Vector2(1, 0)
+repeat_size = Vector2(64, 0)
+autoscroll = Vector2(-8, 0)
+repeat_times = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="background/Parallax2D_sky"]
+position = Vector2(572, -4)
+scale = Vector2(4, 4)
+texture = ExtResource("2_kx6l7")
+centered = false
+
+[node name="Parallax2D_clouds" type="Parallax2D" parent="background"]
+scroll_scale = Vector2(1, 0)
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-16, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="background/Parallax2D_clouds"]
+texture_filter = 1
+position = Vector2(623, 241)
+scale = Vector2(4, 4)
+texture = ExtResource("2_n46q3")
+
+[node name="Parallax2D" type="Parallax2D" parent="background"]
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-32, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="background/Parallax2D"]
+texture_filter = 1
+position = Vector2(576, 544)
+scale = Vector2(4, 4)
+texture = ExtResource("3_kx6l7")
+
+[node name="Parallax2D2" type="Parallax2D" parent="background"]
+repeat_size = Vector2(2048, 0)
+autoscroll = Vector2(-64, 0)
+repeat_times = 2
+
+[node name="TileMapLayer" type="TileMapLayer" parent="background/Parallax2D2"]
+texture_filter = 1
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAkAAAADAAQAAAAAAAoAAAADAAUAAAAAAAsAAAADAAYAAAABAAkAAAADAAQAAAABAAoAAAADAAUAAAABAAsAAAADAAYAAAACAAkAAAADAAQAAAACAAoAAAADAAUAAAACAAsAAAADAAYAAAADAAkAAAADAAQAAAADAAoAAAADAAUAAAADAAsAAAADAAYAAAAEAAkAAAADAAQAAAAEAAoAAAADAAUAAAAEAAsAAAADAAYAAAAFAAkAAAADAAQAAAAFAAoAAAADAAUAAAAFAAsAAAADAAYAAAAGAAkAAAADAAQAAAAGAAoAAAADAAUAAAAGAAsAAAADAAYAAAAHAAkAAAADAAQAAAAHAAoAAAADAAUAAAAHAAsAAAADAAYAAAAIAAkAAAADAAQAAAAIAAoAAAADAAUAAAAIAAsAAAADAAYAAAAJAAkAAAADAAQAAAAJAAoAAAADAAUAAAAJAAsAAAADAAYAAAAKAAkAAAADAAQAAAAKAAoAAAADAAUAAAAKAAsAAAADAAYAAAALAAkAAAADAAQAAAALAAoAAAADAAUAAAALAAsAAAADAAYAAAAMAAkAAAADAAQAAAAMAAoAAAADAAUAAAAMAAsAAAADAAYAAAANAAkAAAADAAQAAAANAAoAAAADAAUAAAANAAsAAAADAAYAAAAOAAkAAAADAAQAAAAOAAoAAAADAAUAAAAOAAsAAAADAAYAAAAPAAkAAAADAAQAAAAPAAoAAAADAAUAAAAPAAsAAAADAAYAAAAQAAkAAAADAAQAAAAQAAoAAAADAAUAAAAQAAsAAAADAAYAAAARAAkAAAADAAQAAAARAAoAAAADAAUAAAARAAsAAAADAAYAAAAAAAMAAAAHAAIAAAAAAAQAAAAHAAMAAAAAAAUAAAAHAAQAAAAAAAYAAAAHAAUAAAAAAAcAAAAHAAYAAAABAAMAAAAIAAIAAAABAAQAAAAIAAMAAAABAAUAAAAIAAQAAAABAAYAAAAIAAUAAAABAAcAAAAIAAYAAAABAAgAAAAIAAcAAAACAAMAAAAJAAIAAAACAAQAAAAJAAMAAAACAAUAAAAJAAQAAAACAAYAAAAJAAUAAAACAAcAAAAJAAYAAAACAAgAAAAJAAcAAAADAAQAAAAKAAMAAAADAAUAAAAKAAQAAAADAAYAAAAKAAUAAAASAAkAAAADAAQAAAASAAoAAAADAAUAAAASAAsAAAADAAYAAAAYAAkAAAADAAQAAAAYAAoAAAADAAUAAAAYAAsAAAADAAYAAAAXAAkAAAADAAQAAAAXAAoAAAADAAUAAAAXAAsAAAADAAYAAAAWAAkAAAADAAQAAAAWAAoAAAADAAUAAAAWAAsAAAADAAYAAAAVAAkAAAADAAQAAAAVAAoAAAADAAUAAAAVAAsAAAADAAYAAAAUAAkAAAADAAQAAAAUAAoAAAADAAUAAAAUAAsAAAADAAYAAAATAAkAAAADAAQAAAATAAoAAAADAAUAAAATAAsAAAADAAYAAAD//wkAAAADAAQAAAD//woAAAADAAUAAAD//wsAAAADAAYAAAD+/wkAAAADAAQAAAD+/woAAAADAAUAAAD+/wsAAAADAAYAAAD9/wkAAAADAAQAAAD9/woAAAADAAUAAAD9/wsAAAADAAYAAAD8/wkAAAADAAQAAAD8/woAAAADAAUAAAD8/wsAAAADAAYAAAD7/wkAAAADAAQAAAD7/woAAAADAAUAAAD7/wsAAAADAAYAAAD6/wkAAAADAAQAAAD6/woAAAADAAUAAAD6/wsAAAADAAYAAAD5/wkAAAADAAQAAAD5/woAAAADAAUAAAD5/wsAAAADAAYAAAD+/wgAAAANAAIAAAD//wgAAAAOAAIAAAAXAAgAAAAIAAcAAAAYAAgAAAAJAAcAAAAWAAMAAAAHAAIAAAAWAAQAAAAHAAMAAAAWAAUAAAAHAAQAAAAWAAYAAAAHAAUAAAAWAAcAAAAHAAYAAAAXAAMAAAAIAAIAAAAXAAQAAAAIAAMAAAAXAAUAAAAIAAQAAAAXAAYAAAAIAAUAAAAXAAcAAAAIAAYAAAAYAAMAAAAJAAIAAAAYAAQAAAAJAAMAAAAYAAUAAAAJAAQAAAAYAAYAAAAJAAUAAAAYAAcAAAAJAAYAAAAZAAQAAAAKAAMAAAAZAAUAAAAKAAQAAAAZAAYAAAAKAAUAAAASAAgAAAAQAAIAAAATAAgAAAARAAIAAAAIAAgAAAAQAAIAAAAJAAgAAAARAAIAAAA=")
+tile_set = SubResource("TileSet_gwceb")
+
+[node name="pipe_spawner" type="Node2D" parent="."]
+position = Vector2(1563, 324)
+scale = Vector2(2, 2)
+script = ExtResource("5_btoec")
+
+[node name="Timer" type="Timer" parent="pipe_spawner"]
+wait_time = 2.0
+autostart = true
+
+[node name="player" parent="." instance=ExtResource("1_vn7o3")]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+collision_layer = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("7_gwceb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(576, -32)
+shape = SubResource("WorldBoundaryShape2D_l53as")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(576, 683)
+shape = SubResource("WorldBoundaryShape2D_l53as")
+
+[connection signal="timeout" from="pipe_spawner/Timer" to="pipe_spawner" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
